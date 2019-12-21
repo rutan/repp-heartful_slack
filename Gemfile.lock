@@ -11,6 +11,7 @@ GEM
     parallel (1.19.1)
     parser (2.6.5.0)
       ast (~> 2.4.0)
+    power_assert (1.1.5)
     rainbow (3.0.0)
     rake (10.5.0)
     rubocop (0.78.0)
@@ -21,6 +22,8 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
     ruby-progressbar (1.10.1)
+    test-unit (3.3.4)
+      power_assert
     unicode-display_width (1.6.0)
 
 PLATFORMS
@@ -30,7 +33,8 @@ DEPENDENCIES
   bundler (~> 1.17)
   rake (~> 10.0)
   repp-heartful_slack!
-  rubocop
+  rubocop (= 0.78.0)
+  test-unit (~> 3.3)
 
 BUNDLED WITH
    1.17.2
