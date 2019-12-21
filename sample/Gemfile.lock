@@ -1,9 +1,7 @@
 PATH
-  remote: .
+  remote: ..
   specs:
     repp-heartful_slack (0.1.0)
-      repp
-      slack-ruby-client
 
 GEM
   remote: https://rubygems.org/
@@ -14,7 +12,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2)
-    ast (2.4.0)
+    chronic (0.10.2)
     concurrent-ruby (1.1.5)
     eventmachine (1.2.7)
     faraday (0.17.1)
@@ -28,28 +26,18 @@ GEM
     hashie (4.0.0)
     i18n (1.7.0)
       concurrent-ruby (~> 1.0)
-    jaro_winkler (1.5.4)
     minitest (5.13.0)
+    mobb (0.5.1)
+      parse-cron (~> 0.1)
+      repp (~> 0.4)
+      whenever (~> 0.10)
     multipart-post (2.1.1)
-    parallel (1.19.1)
-    parser (2.6.5.0)
-      ast (~> 2.4.0)
-    power_assert (1.1.5)
-    rainbow (3.0.0)
-    rake (10.5.0)
+    parse-cron (0.1.4)
     repp (0.4.0)
       concurrent-ruby (~> 1.0)
       eventmachine (~> 1.2)
       faye-websocket (~> 0.10)
       slack-ruby-client (~> 0.11)
-    rubocop (0.78.0)
-      jaro_winkler (~> 1.5.1)
-      parallel (~> 1.10)
-      parser (>= 2.6)
-      rainbow (>= 2.2.2, < 4.0)
-      ruby-progressbar (~> 1.7)
-      unicode-display_width (>= 1.4.0, < 1.7)
-    ruby-progressbar (1.10.1)
     slack-ruby-client (0.14.4)
       activesupport
       faraday (>= 0.9)
@@ -57,26 +45,22 @@ GEM
       gli
       hashie
       websocket-driver
-    test-unit (3.3.4)
-      power_assert
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    unicode-display_width (1.6.0)
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
+    whenever (0.11.0)
+      chronic (>= 0.6.3)
     zeitwerk (2.2.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.17)
-  rake (~> 10.0)
+  mobb (~> 0.5.1)
   repp-heartful_slack!
-  rubocop (= 0.78.0)
-  test-unit (~> 3.3)
 
 BUNDLED WITH
    1.17.2

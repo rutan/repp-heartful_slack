@@ -23,36 +23,36 @@ Or install it yourself as:
 in [Mobb](https://github.com/kinoppyd/mobb)
 
 ```ruby
-gem 'mobb'
-gem 'repp-heartful_slack'
+require 'mobb'
+require 'repp/heartful_slack'
 
-set(:on_message) do |_|
+set :service, 'heartful_slack'
+
+set :on_message do |_|
   condition {@env.kind_of?(::Repp::HeartfulSlack::MessageReceive)}
 end
 
-set(:on_event) do |_|
+set :on_event do |_|
   condition {@env.kind_of?(::Repp::HeartfulSlack::EventReceive)}
 end
 
-set(:to_notify) do |_|
+set :to_notify do |_|
   dest_condition do |res|
     res.last[:channel] = ENV['NOTIFY_CHANNEL'] # ex. Cxxxxxxx
   end
 end
 
-on 'team_join', on_event: true, to_notify: true do
-  "new member -> <#{@env.raw.user.id}>"
-end
-
 on 'emoji_changed', on_event: true, to_notify: true do
   case @env.raw.subtype
   when 'add'
-    'new emoji -> :#{@env.raw.name}:'
+    "new emoji -> :#{@env.raw.name}:"
   when 'remove'
-    'removed emoji -> #{@env.raw.names.map { |name| ":#{name}:" }.join(' ')}'
+    "removed emoji -> #{@env.raw.names.map { |name| ":#{name}:" }.join(' ')}"
   end
 end
 ```
+
+see `sample/app.rb`
 
 ## License
 
